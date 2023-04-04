@@ -72,7 +72,7 @@
                <!-- <li><a href="#"><i class="fa fa-facebook"></i></a></li> -->
                <!-- <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li> -->
                <!-- <li><a href="#"><i class="fa fa-google-plus"></i></a></li> -->
-               <li><a href="https://linkedin.com/in/jephtha-roland-6a6093200" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                       <li><a href="https://linkedin.com/in/jephtha-roland-6a6093200" target="_blank"><i class="fa fa-linkedin"></i></a></li>
                <li><a href="http://github.com/Roland-Jephtha" target="_blank"><i class="fa fa-github"></i></a></li>
                <!-- <li><a href="#"><i class="fa fa-instagram"></i></a></li> -->
                <!-- <li><a href="#"><i class="fa fa-dribbble"></i></a></li> -->
@@ -127,8 +127,11 @@
 
                <div class="columns download">
                   <p>
-                     {%for res in resume%}
-                     <a href="" class="button" download = '{{res.file.url}}'><i class="fa fa-download"  ></i>Download Resume</a>
+                     {%for resu in resume%}
+                     <a href="{{resu.file.url}}"  download = '{{resu.file.url}}' class="button" >
+                         <i class="fa fa-download"  ></i>
+                           Download Resume
+                     </a>
                      {%endfor%}
                   </p>
                </div>
@@ -151,27 +154,16 @@
       <div class="row education">
 
          <div class="three columns header-col" >
-            <h1 class="res"><span>Education</span></h1>
+            <h1 class="res"><span>Skills</span></h1>
          </div>
 
          <div class="nine columns main-col">
 
-            {%for edu in education reversed%}
+            {%for ski in skill%}
 
-            <div class="row item">
+            <p>{{ski.detail| linebreaks}}
+            </p>
 
-               <div class="twelve columns">
-
-                  <h3 class="res">{{edu.title}}</h3>
-                  <p class="res">{{edu.school}} <span>&bull;</span> <em class="date">{{edu.date}}</em></p>
-
-                  <p>
-                     {{edu.description| linebreaks}}
-                  </p>
-
-               </div>
-
-            </div> 
             {%endfor%}
             <!-- item end -->
 
@@ -227,13 +219,23 @@
          </div>
 
          <div class="nine columns main-col">
-            {%for ski in skill%}
+            {%for edu in education reversed%}
 
-            <p>{{ski.detail| linebreaks}}
-            </p>
+            <div class="row item">
 
+               <div class="twelve columns">
+
+                  <h3 class="res">{{edu.title}}</h3>
+                  <p class="res">{{edu.school}} <span>&bull;</span> <em class="date">{{edu.date}}</em></p>
+
+                  <p>
+                     {{edu.description| linebreaks}}
+                  </p>
+
+               </div>
+
+            </div> 
             {%endfor%}
-
            
 
 				<div class="bar">
@@ -580,7 +582,7 @@
                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                <li><a href="#"><i class="fa fa-linkedin"></i></a></li> -->
-               <li><a href="www.linkedin.com/in/jephtha-roland-6a6093200" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+         <li><a href="https://linkedin.com/in/jephtha-roland-6a6093200" target="_blank"><i class="fa fa-linkedin"></i></a></li>
                <li><a href="http://github.com/Roland-Jephtha" target="_blank"><i class="fa fa-github"></i></a></li>
 
             </ul>

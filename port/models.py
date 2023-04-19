@@ -1,5 +1,5 @@
 from django.db import models
-
+import cloudinary
 # Create your models here.
 
 class Education(models.Model):

@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import cloudinary_storage
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,9 +29,7 @@ SECRET_KEY = 'django-insecure-j#360%c5)w@5ktzg)a@upb4-8i^t)%0gfvunvk2y2n*fs@1%rp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-
-CSRF_TRUSTED_ORIGINS=['https://jeph-portfolio.up.railway.app']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -41,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'port',
     'whitenoise.runserver_nostatic',
+     'cloudinary',
+    'cloudinary_storage'
 ]
 
 MIDDLEWARE = [
@@ -78,26 +82,26 @@ WSGI_APPLICATION = 'jephportfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-
-
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD':'sUXgvaMuLzoyCyYjtfA7',
-        'HOST': 'containers-us-west-38.railway.app',
-        'PORT': '5807',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'USER': 'postgres',
+#         'PASSWORD':'sUXgvaMuLzoyCyYjtfA7',
+#         'HOST': 'containers-us-west-38.railway.app',
+#         'PORT': '5807',
+#     }
+# }
 
 
 # Password validation
@@ -152,8 +156,26 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATIC_ROOT = os.path.join(BASE_DIR/'staticfiles')
 
+
+
+
+CLOUDINARY_STORAGE ={
+    'CLOUD_NAME': 'dx67lmaku',
+    'API_KEY' : '223338436211385',
+    'API_SECRET' : 'F-Iel3L-Kw1fHzy1xEhgkGunRPw'
+}
+
+
+
+# cloudinary.config(
+#     cloud_name ='dx67lmaku',
+#     api_key = '223338436211385',
+#     api_secret =  'F-Iel3L-Kw1fHzy1xEhgkGunRPw',
+# )
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

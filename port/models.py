@@ -65,7 +65,7 @@ class Contact(models.Model):
     
 class Resume(models.Model):
     name = models.CharField(max_length = 255)
-    file = models.FileField( null = True, upload_to = 'media')
+    file = models.FileField( null = True, upload_to = 'portfolio-files')
     
     
     def __str__(self):
